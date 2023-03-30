@@ -1,0 +1,32 @@
+1)To Query the Boot Image of VM
+
+query :- curl "http://metadata.google.internal/computeMetadata/v1/instance/image" -H "Metadata-Flavor: Google"
+
+o/p:- projects/rhel-cloud/global/images/rhel-8-v20210122
+
+2) To query the disks attached to a VM:-
+
+query :- curl "http://metadata.google.internal/computeMetadata/v1/instance/disks/" -H "Metadata-Flavor: Google"
+
+o/p:-0/
+     1/
+     2/
+
+ for going into more detail of the disks 0,1 and 2 query further:-
+
+  query:- curl "http://metadata.google.internal/computeMetadata/v1/instance/disks/0/" -H "Metadata-Flavor: Google"
+  
+  o/p:- device-name
+        index
+        mode
+        type
+
+  to query the disk type:-
+
+
+   query:- curl "http://metadata.google.internal/computeMetadata/v1/instance/disks/0/type" -H "Metadata-Flavor: Google"
+
+
+    o/p:- persistent
+
+ 
